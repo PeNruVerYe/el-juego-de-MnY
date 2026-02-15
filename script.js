@@ -41,7 +41,7 @@ function loop() {
 function draw() {
   ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#0f0';
+  ctx.fillStyle = '#ff69b4';
   snake.forEach(s => ctx.fillRect(s.x * scale, s.y * scale, scale - 1, scale - 1));
   ctx.fillStyle = '#f00';
   ctx.fillRect(apple.x * scale, apple.y * scale, scale - 1, scale - 1);
