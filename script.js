@@ -1,4 +1,6 @@
 const canvas = document.getElementById('game');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
 const scale = 20;
 const rows = canvas.height / scale;
@@ -41,7 +43,7 @@ function loop() {
 function draw() {
   ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#ff69b4';
+  ctx.fillStyle = '#69bcff';
   snake.forEach(s => ctx.fillRect(s.x * scale, s.y * scale, scale - 1, scale - 1));
   ctx.fillStyle = '#f00';
   ctx.fillRect(apple.x * scale, apple.y * scale, scale - 1, scale - 1);
@@ -69,6 +71,14 @@ window.addEventListener('keydown', e => {
   else if (key === 'ArrowRight' && dir.x === 0) { dir = {x:1,y:0}; }
   else if (key === ' ') { if (!running) reset(); }
 });
+
+<div id="controls">
+  <button onclick="setDir(0,-1)">↑</button>
+  <button onclick="setDir(-1,0)">←</button>
+  <button onclick="setDir(1,0)">→</button>
+  <button onclick="setDir(0,1)">↓</button>
+</div>
+
 
 function reset() {
   snake = [{x:10,y:10}];
